@@ -1,18 +1,15 @@
-import math
-
-
 def squareSequenceDigit(n):
+    l_all = []
+    i = 1
 
-    if (n == 1):
-        return 1
-    else:
-        return n
+    while len(l_all) < n:
+        l_add = []
+        i_sq = i * i
+        while i_sq > 0:
+            l_add.append(i_sq % 10)
+            i_sq = i_sq // 10
+        l_add = l_add[::-1]
+        l_all += l_add
+        i += 1
 
-
-if __name__ == "__main__":
-    print(squareSequenceDigit(1))
-    print(squareSequenceDigit(2))
-    print(squareSequenceDigit(7))
-    print(squareSequenceDigit(12))
-    print(squareSequenceDigit(17))
-    print(squareSequenceDigit(27))
+    return(l_all[n - 1])
