@@ -6,10 +6,10 @@ import getweatherdata_test
 
 def get_weather_data(place, api_key=''):
     req = requests.get('http://api.openweathermap.org/data/2.5/weather?q='+ place + '&appid=' + api_key)
-    if req.status_code == (400):
+    if req.status_code == 400:
         print('Place-name issue')
         return None
-    if req.status_code == (401):
+    if req.status_code == 401:
         print('API key issue')
         return None
     res = json.loads(req.text)
